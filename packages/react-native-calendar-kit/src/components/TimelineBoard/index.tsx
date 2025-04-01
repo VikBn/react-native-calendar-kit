@@ -1,6 +1,6 @@
 import React from 'react';
 import type { GestureResponderEvent } from 'react-native';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { EXTRA_HEIGHT, MILLISECONDS_IN_DAY } from '../../constants';
 import { useActions } from '../../context/ActionsProvider';
@@ -186,8 +186,13 @@ const TimelineBoard = ({
   };
 
   const _renderUnavailableHours = () => {
-    return <UnavailableHours visibleDates={visibleDates} resources={resources} />;
+    return (
+      <UnavailableHours visibleDates={visibleDates} resources={resources} />
+    );
   };
+
+  const numOfResources = resources ? resources.length : 1;
+  const columnWidth = (columnWidthAnim.value - hourWidth) / numOfResources;
 
   return (
     <View style={styles.container}>
@@ -196,6 +201,49 @@ const TimelineBoard = ({
           <TimeColumn />
         </View>
       )}
+
+      {resources &&
+        resources.map((resource, index) => (
+          <TouchableOpacity
+            key={resource.id}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: index * columnWidth,
+              width: columnWidth,
+              height: '100%',
+              zIndex: 1,
+            }}
+            onPress={(e) => {
+              const i_location_y: number = e.nativeEvent.locationY - 315; // 315 ?
+              console.log('locationY2', i_location_y);
+
+              const clickedTime: number = Math.floor(i_location_y / 50) * 30; // Approximate time
+
+              const locationYToTime = (
+                i_location_y_current: number,
+                cellHeight: number = 60,
+                startHour: number = 0
+              ) => {
+                // 1. Рассчитываем часы и минуты
+                const totalMinutes = (i_location_y_current / cellHeight) * 60;
+                const hours = Math.floor(totalMinutes / 60) + startHour;
+                const minutes = Math.floor(totalMinutes % 60);
+
+                // 2. Переводим в 12-часовой формат
+                const ampm: 'am' | 'pm' = hours >= 12 ? 'pm' : 'am';
+                const displayHours: number = hours % 12 || 12; // 0 -> 12
+
+                return `${displayHours}:${minutes.toString().padStart(2, '0')}${ampm}`;
+              };
+
+              // Пример: locationY = 240, cellHeight = 60 (1 час = 60 пикселей)
+              console.log(locationYToTime(i_location_y, 120)); // 4:00am
+              console.log(resource.id, clickedTime);
+            }}
+          />
+        ))}
+
       <Animated.View
         style={[
           styles.calendarGrid,
