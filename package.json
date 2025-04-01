@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Fork of @howljs/react-native-calendar-kit with custom modifications",
   "packageManager": "yarn@4.8.1",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VikBn/react-native-calendar-kit.git"
