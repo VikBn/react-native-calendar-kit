@@ -711,6 +711,9 @@ export interface CalendarBodyProps {
   /** Custom hour text */
   hourFormat?: string;
 
+  /** Enable to tap on empty cell */
+  is_empty_cell_tappable?: boolean;
+
   /** Custom hour text
    *
    * Note: Please use `useCallback` to memoize the function

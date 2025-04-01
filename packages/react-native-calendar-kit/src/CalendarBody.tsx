@@ -38,6 +38,7 @@ const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
 
 const CalendarBody: React.FC<CalendarBodyProps> = ({
   hourFormat = 'HH:mm',
+  is_empty_cell_tappable = false,
   renderHour,
   showNowIndicator = true,
   renderCustomOutOfRange,
@@ -193,6 +194,7 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
       spaceFromBottom,
       timelineHeight,
       hours,
+      is_empty_cell_tappable,
       hourFormat,
       totalSlots,
       columnWidthAnim,
@@ -235,6 +237,7 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
       spaceFromBottom,
       timelineHeight,
       hours,
+      is_empty_cell_tappable,
       hourFormat,
       totalSlots,
       columnWidthAnim,

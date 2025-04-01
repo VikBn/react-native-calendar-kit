@@ -2162,18 +2162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@howljs/calendar-kit-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@howljs/calendar-kit-monorepo@workspace:."
-  dependencies:
-    eslint: "npm:^8.57.0"
-    husky: "npm:^9.1.6"
-    lint-staged: "npm:^15.2.2"
-    prettier: "npm:^3.3.3"
-    typescript: "npm:~5.3.0"
-  languageName: unknown
-  linkType: soft
-
 "@howljs/calendar-kit@workspace:packages/react-native-calendar-kit":
   version: 0.0.0-use.local
   resolution: "@howljs/calendar-kit@workspace:packages/react-native-calendar-kit"
@@ -4262,6 +4250,18 @@ __metadata:
   checksum: 10/db9d611a5c66afa0b9953d2d622ad19b191da631841a1a3231d1a837ff1bd756e26cb87569e9f124d5503866f36c77f2bc33fa2f86fba20b1b61bd476be9261b
   languageName: node
   linkType: hard
+
+"@vikbn/react-native-calendar-kit@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@vikbn/react-native-calendar-kit@workspace:."
+  dependencies:
+    eslint: "npm:^8.57.0"
+    husky: "npm:^9.1.6"
+    lint-staged: "npm:^15.2.2"
+    prettier: "npm:^3.3.3"
+    typescript: "npm:~5.3.0"
+  languageName: unknown
+  linkType: soft
 
 "@web3-storage/multipart-parser@npm:^1.0.0":
   version: 1.0.0

@@ -1,8 +1,13 @@
 {
   "name": "@vikbn/react-native-calendar-kit",
   "version": "1.0.0",
-  "packageManager": "yarn@4.1.1",
+  "description": "Fork of @howljs/react-native-calendar-kit with custom modifications",
+  "packageManager": "yarn@4.8.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VikBn/react-native-calendar-kit.git"
+  },
   "workspaces": {
     "packages": [
       "packages/*",
@@ -15,7 +20,7 @@
     "build": "yarn workspaces foreach -A -p run build",
     "lint": "yarn workspaces foreach -A -p run lint",
     "prepare": "husky",
-    "release": "yarn workspace @howljs/calendar-kit release"
+    "release": "yarn workspace @vikbn/calendar-kit release"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

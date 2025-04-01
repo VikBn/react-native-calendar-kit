@@ -34,6 +34,7 @@ export interface BodyContextProps {
   timeInterval: number;
   showNowIndicator: boolean;
   columnWidth: number;
+  is_empty_cell_tappable: boolean;
   isRTL: boolean;
   columns: number;
   calendarData: DataByMode;
